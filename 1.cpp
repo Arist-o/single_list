@@ -3,6 +3,7 @@
 // Вивести список осіб в порядку черги за датою постановки на облік. 
 #include <iostream>
 #include <Windows.h>
+#include <algorithm>
 #include "function.h"
 
 
@@ -42,20 +43,24 @@ int main()
             }
             break;
         case 2:
-            print(Head);
+            if (empty(Head)) cout << "Список не створено" << endl;
+            else print(Head);
             break;
         case 3:
             vved_vubir(vubir);
             switch (vubir)
             {
             case 1:
-                delete_first_el(&Head);
+                if (empty(Head)) cout << "Список не створено" << endl;
+                else delete_first_el(Head);
                 break;
             case 2:
-                delete_last_el(&Head);
+                if (empty(Head)) cout << "Список не створено" << endl;
+                else delete_last_el(Head);
                 break;
             case 3:
-                delet_element(Head, number);
+                if (empty(Head)) cout << "Список не створено" << endl;
+                else delet_element(Head, number);
                 break;
             case 4:
                 break;
@@ -70,14 +75,22 @@ int main()
             switch (vubir)
             {
             case 1:
+                if (empty(Head)) cout << "Список не створено" << endl;
+                else {
+                    vved(rozmir);
+                    add_first(&Head);
+                }
                 break;
             case 2:
-                for (size_t i = 0; i < rozmir; i++)
-                {
+                if (empty(Head)) cout << "Список не створено" << endl;
+                else {
+                    vved(rozmir);
                     add_end(&Head);
                 }
                 break;
             case 3:
+                if (empty(Head)) cout << "Список не створено" << endl;
+                else add_element_number(Head,number);
                 break;
             case 4:
                 break;
@@ -111,7 +124,8 @@ int main()
             delete_s(Head);
             break;
         case 8:
-            
+            if (empty(Head)) cout << "Список не створено" << endl;
+            else buff(&Head);
             break;
         case 9:
             povtor = false;

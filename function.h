@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <algorithm>
 #include <Windows.h>
 
 using namespace std;
@@ -23,6 +24,20 @@ bool find_element(s_list* Head, int number);
 
 bool empty(s_list* Head);
 
+//
+
+bool compare(Data& a, Data& b);
+
+void create_sorted_list(s_list** Head, Data* clients, int size);
+
+void buff(s_list** Head);
+
+//
+
+s_list* delet_element(s_list* Head, int number);
+
+s_list* add_element_number(s_list* Head, int number);
+
 void vved(int& rozmir);
 
 void vved_n(int& number);
@@ -33,15 +48,13 @@ void create_list( s_list** Head);
 
 void print(s_list* Head);
 
-void add_first(s_list* Head);
+void add_first(s_list** Head);
 
 void add_end(s_list** Head);
 
-void delete_first_el(s_list** Head);
+void delete_first_el(s_list* Head);
 
-void delete_last_el(s_list** Head);
-
-void delet_element(s_list* Head, int number);
+void delete_last_el(s_list* Head);
 
 void delete_s(s_list* Head);
 
