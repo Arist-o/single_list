@@ -44,7 +44,7 @@ void vved_n(int& number);
 
 void vved_vubir(int& vubir);
 
-void create_list( s_list** Head);
+void create_list( s_list* Head);
 
 void print(s_list* Head);
 

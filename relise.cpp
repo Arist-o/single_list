@@ -57,15 +57,6 @@ void buff(s_list** Head)
     cin >> clientCount;
     Data* clients = new Data[clientCount];
 
-    for (int i = 0; i < clientCount; i++) {
-        cout << "Клієнт " << i + 1 << endl;
-        cout << "Введіть номер: "; cin >> clients[i].nomer;
-        cout << "Введіть ПІБ: "; cin.ignore(); getline(cin, clients[i].pib);
-        cout << "Введіть адресу: "; getline(cin, clients[i].adres);
-        cout << "Введіть день: "; cin >> clients[i].day;
-        cout << "Введіть місяць: "; cin >> clients[i].month;
-        cout << "Введіть рік: "; cin >> clients[i].year;
-    }
 
     create_sorted_list(Head, clients, clientCount);
 
@@ -180,35 +171,35 @@ void vved_vubir(int& vubir)
     } while (vubir < 1 || vubir > 4);
 }
 
-void create_list(s_list** Head) {
-    (*Head) = new s_list();
+void create_list(s_list* Head) {
+   
+    cout << "Введіть номер: "; cin >> Head->pos.nomer;
 
-    cout << "Введіть номер: "; cin >> (*Head)->pos.nomer;
+    cout << "Введіть ПІБ: "; cin.ignore(); getline(cin, Head->pos.pib);
 
-    cout << "Введіть ПІБ: "; cin.ignore(); getline(cin, (*Head)->pos.pib);
+    cout << "Введіть адресу: "; getline(cin, Head->pos.adres);
 
-    cout << "Введіть адресу: "; getline(cin, (*Head)->pos.adres);
+    cout << "Введіть день: "; cin >> Head->pos.day;
 
-    cout << "Введіть день: "; cin >> (*Head)->pos.day;
+    cout << "Введіть місяць: "; cin >> Head->pos.month;
 
-    cout << "Введіть місяць: "; cin >> (*Head)->pos.month;
+    cout << "Введіть рік: "; cin >> Head->pos.year;
 
-    cout << "Введіть рік: "; cin >> (*Head)->pos.year;
-
-    (*Head)->next = nullptr;
+    Head->next = nullptr;
 }
 
 
 void print(s_list* Head)
 {
-    if (Head != nullptr) {
-        cout << "Номер: " << Head->pos.nomer << endl;
-        cout << "ПІБ: " << Head->pos.pib << endl;
-        cout << "Адреса: " << Head->pos.adres << endl;
-        cout << "Дата: " << Head->pos.day << "/" << Head->pos.month << "/" << Head->pos.year << endl;
-        print(Head->next);
+    s_list* temp = Head;
+    while (temp != nullptr)
+    {
+        cout << "Номер: " << temp->pos.nomer << endl;
+        cout << "ПІБ: " << temp->pos.pib << endl;
+        cout << "Адреса: " << temp->pos.adres << endl;
+        cout << "Дата: " << temp->pos.day << "/" << temp->pos.month << "/" << temp->pos.year << endl;
     }
-    else cout << endl;
+    cout << endl;
 
 }
 void add_end(s_list** Head) 
